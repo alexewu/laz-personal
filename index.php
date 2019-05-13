@@ -1,2 +1,3 @@
 <?php
-    include 'postPage.html';
+    include 'modules/DBGateway.class.php';
+    include 'PostPage.html';

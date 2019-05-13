@@ -42,3 +42,8 @@
             return $info;
         }
     }
+
+    $db_gateway = new DBGateway();
+    if (isset($_GET['postID'])) {
+        echo json_encode($db_gateway->getPostInfo($_GET['postID']));
+    }
