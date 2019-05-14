@@ -55,7 +55,6 @@ div
     width: 800px;
     margin: 0px auto;
     padding: 50px;
-    background-color: lightblue;
 }
 
 table
@@ -80,7 +79,15 @@ table
 
 .card
 {
+    background-color: lightblue;
     position: relative;
     margin-top: 40px;
     -webkit-border-radius: 80px;
+}
+
+.singlePost
+{
+    width: 400px;
+    background-color: whitesmoke;
+    -webkit-border-radius: 60px;
 }

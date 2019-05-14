@@ -1,35 +1,39 @@
 class AjaxCalls {
-    static getPostInfo (post_id) {
+    static getFeed () {
         return $.ajax ({
-            url: "Router.php",
+            url: "/main/feedContent/",
             type: "GET",
-            dataType: "json",
-            data: {
-                "function_name": "getPostInfo",
-                "data": {
-                    "post_id": post_id
-                }
-            }
         }).then(function(response) {
             return response
         })
     }
 
-    // TODO: should function name be camel case or snake case
-    static getAlbumInfo (uri) {
-        let headers = {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            "Authorization": "Bearer BQCJFsT3afMJHcPJQ3VoyUP5M2hkwFxIEmIZU0GsWbV7fje_0xypUXZ6VnlUxzVZVOKVZFtzCgzeRs2a_nzCzdPljP0nXgHjVlaw0unCe6bGYydX1AqyJR65MXusLRsmfKNCTF0j6fJwE1Vdz5rByJiEb3SD4Jv2MP4NKM8SXNUF8Ymu2e4UR6jPveakBRFepUpwkKRJwXMi20h43ulYqP30wb8F-wav7sdnRwWXMvV1zW0T_lZMCQLxSxuCUxcNeu9OhiGXkhSBd0k"
-        };
+    static getPostInfo (post_id) {
         return $.ajax ({
-            url: "Router.php", //used to be "https://api.spotify.com/v1/albums/" + uri
+            url: "/main/review/" + post_id,
+            type: "GET",
+        }).then(function(response) {
+            return response
+        })
+    }
+
+    static getMusicInfo (uri, type) {
+        let url;
+        if(type === "album") {
+            url = "https://api.spotify.com/v1/albums/";
+        }
+        else {
+            url = "https://api.spotify.com/v1/tracks/";
+        }
+
+        return $.ajax ({
+            url: url + uri,
             type: "GET",
             dataType: "json",
-            // TODO: should I pass the headers in as data?
-            data: {
-                "function_name": "getAlbumInfo",
-                "data": {"uri": uri, "headers": headers}
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer BQACnKyt7rmTrOjZDeF6wRRNI63Fn6dpbZH9Y_IGe0p8hh6yT_0tUYO5rZtf9EVDHC8_fQ3siy5dsw1NqsWQNlAqpjzpCoySNEVYrjPSdSHPqxRLWWNpxr2eLjeZbKGp1_lhozUB2-4ux_8UPbsGA29QNCjAmqUdlO-vffTv7MqfbvoxFHS9UCfdkWrGNp5ttyHCclK0M4vvLjUOochnp-MVAslOFV9QD5AX-1lt0ApUgrUcHfHDJ-k-ljm7LMJmJDq19dvDKfDF-lU"
             }
         }).then(function(response) {
             return response

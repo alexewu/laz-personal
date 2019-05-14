@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Post Page</title>
-    <script src="jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
     <div class="card">
@@ -32,7 +32,11 @@
         <img id="AlbumCover" class="AlbumCover" src="" alt="Album Cover goes here"/>
     </div>
 
+
 </body>
-<script src="AjaxCalls.js"></script>
-<script src="UserInterface.js"></script>
+<script type="text/javascript">
+    var postId = <?= $postId;?>;
+</script>
+<script src="/AjaxCalls.js"></script>
+<script src="/ReviewUserInterface.js"></script>
 </html>

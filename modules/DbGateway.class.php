@@ -42,4 +42,22 @@
             $this->close();
             return $info;
         }
+
+        public function getFeedInfo() {
+            $this->open();
+            $sql = "SELECT  name,
+                            body_text,
+                            music_id,
+                            created_at,
+                            review_type
+                            FROM post
+                            JOIN user ON post.user_id = user.user_id";
+            $result = $this->connection->query($sql);
+            $feed = array();
+            while($post = $result->fetch_assoc()) {
+                array_push($feed, $post);
+            }
+            $this->close();
+            return $feed;
+        }
     }
