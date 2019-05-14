@@ -1,5 +1,6 @@
 <?php
-    class DBGateway {
+    # NOTE: open and close the connection in each function
+    class DbGateway {
         private $connection;
 
         public function __construct() {
@@ -41,9 +42,4 @@
             $this->close();
             return $info;
         }
-    }
-
-    $db_gateway = new DBGateway();
-    if (isset($_GET['postID'])) {
-        echo json_encode($db_gateway->getPostInfo($_GET['postID']));
     }

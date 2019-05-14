@@ -63,6 +63,16 @@ table
     border-spacing: 0px;
 }
 
+.AlbumCover
+{
+    border-radius: 40px;
+    width: 200px;
+    display:inline-block;
+    position:absolute;
+    right:30px;
+    top:50px;
+}
+
 .subheader
 {
     font-style: italic;
@@ -70,6 +80,7 @@ table
 
 .card
 {
+    position: relative;
     margin-top: 40px;
     -webkit-border-radius: 80px;
 }
