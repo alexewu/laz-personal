@@ -5,8 +5,7 @@ AjaxCalls.getFeed()
         let br = "<br>";
         for(let i = 0; i < data.length; i+=1)
         {
-            let name = getSongAlbumName(data[i]["music_id"], data[i]["review_type"]);
-            console.log(name);
+            console.log(test());
             //let header="<h3>"+getSongAlbumName(data[i]["music_id"])+"</h3>";
             let p1="<p>"+data[i]["name"]+"</p>";
             let p2="<p>"+data[i]["body_text"]+"</p>";
@@ -30,9 +29,24 @@ function getImageURL (uri, type) {
     });
 }
 
-function getSongAlbumName (uri, type) {
-    AjaxCalls.getMusicInfo(uri, type).then(function(data) {
-        console.log(data["name"]);
-        return data["name"];
+function test() {
+    getMediaName(function (d) {
+        return d;
+        console.log(d);
     });
 }
+
+function getMediaName (callback) {
+    var data;
+    AjaxCalls.getMusicInfo("0sNOF9WDwhWunNAHPD3Baj", "album").then(function(resp) {
+        data = resp;
+        callback(data);
+    });
+}
+
+//function getSongAlbumName (uri, type) {
+//    AjaxCalls.getMusicInfo(uri, type).then(function(data) {
+//        console.log(data["name"]);
+//        return data["name"];
+//    });
+//}

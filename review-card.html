@@ -1,0 +1,15 @@
+<div class="card">
+    <h1 id="AlbumName"> {{ $ctrl.musicName }} </h1>
+    <p class="subheader">
+        Written by: {{ $ctrl.author }}
+    </p>
+    <p class="subheader">
+        Posted on: {{ $ctrl.date }}
+    </p>
+    <p class="subheader">
+        Review Type: {{ $ctrl.reviewType }}
+    </p>
+    <br><br><br>
+    <p id="Body"> {{ $ctrl.bodyText }} </p>
+    <img id="AlbumCover" class="AlbumCover" ng-src="{{$ctrl.imageURL}}" alt="Album Cover goes here"/>
+</div>
