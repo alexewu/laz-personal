@@ -8,38 +8,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
 </head>
 <body ng-app="soundBlog">
-<!--    <div class="card">-->
-<!--        <h1 id="AlbumName"></h1>-->
-<!--        <table>-->
-<!--            <tr>-->
-<!--                <td> <p class="subheader">Written by:</p></td>-->
-<!--                <td><p id="Name" class="subheader"></p></td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--        <table>-->
-<!--            <tr>-->
-<!--                <td> <p class="subheader">Posted on:</p></td>-->
-<!--                <td><p id="Date" class="subheader"></p></td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--        <table>-->
-<!--            <tr>-->
-<!--                <td><p class="subheader"> Review Type: </p></td>-->
-<!--                <td><p id="ReviewType" class="subheader"></p></td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--        <br><br><br>-->
-<!--        <p id="Body"></p>-->
-<!--        <img id="AlbumCover" class="AlbumCover" src="" alt="Album Cover goes here"/>-->
-<!--    </div>-->
-
     <review-card></review-card>
 </body>
 <script type="text/javascript">
     var postId = <?= $postId;?>;
 </script>
-<!--<script src="/AjaxCalls.js"></script>-->
-<!--<script src="/ReviewUserInterface.js"></script>-->
 <script src="/soundBlog.module.js"></script>
 <script src="/music.service.js"></script>
 <script src="/review-card.component.js"></script>

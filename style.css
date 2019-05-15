@@ -85,9 +85,14 @@ table
     -webkit-border-radius: 80px;
 }
 
-.singlePost
+.preview_card
 {
     width: 400px;
     background-color: whitesmoke;
     -webkit-border-radius: 60px;
+}
+
+.feed
+{
+    background-color: #d6e9c6;
 }

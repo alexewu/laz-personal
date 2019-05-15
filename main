@@ -17,7 +17,7 @@ class Router {
                 include 'PostPage.html';
                 exit;
             case "feedContent":
-                return $this->dbGateway->getFeedInfo();
+                return $this->dbGateway->getLastFivePostIds();
                 break;
             default:
                 include 'MainPage.html';

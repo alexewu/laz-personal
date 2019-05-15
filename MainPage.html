@@ -5,13 +5,23 @@
     <title>Welcome to The Sounds Blog</title>
     <script src="/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
 </head>
-<body>
-    <h1 align="center">t h e  -  s o u n d s  -  b l o g</h1>
-<!--    <div id="mainFeed" align="center"></div>-->
+<body ng-app="soundBlog">
+    <h1 align="center">
+        t h e  -  s o u n d s  -  b l o g
+    </h1>
+    <feed>
+        {{ $ctrl.postIDs }}
+        <preview-card></preview-card>
+    </feed>
 
 <p id="test"></p>
 </body>
-<script src="/AjaxCalls.js"></script>
-<script src="MainUserInterface.js"></script>
+<script src="/soundBlog.module.js"></script>
+<script src="/music.service.js"></script>
+<script src="preview-card.component.js"></script>
+<script src="feed.component.js"></script>
+<!--<script src="/AjaxCalls.js"></script>-->
+<!--<script src="MainUserInterface.js"></script>-->
 </html>

@@ -60,4 +60,19 @@
             $this->close();
             return $feed;
         }
+
+        public function getLastFivePostIds() {
+            $this->open();
+            $sql = "SELECT  post_id
+                    FROM post
+                    ORDER BY post_id DESC
+                    LIMIT 5";
+            $result = $this->connection->query($sql);
+            $postIds = array();
+            while($id = $result->fetch_assoc()) {
+                array_push($postIds, $id);
+            }
+            $this->close();
+            return $postIds;
+        }
     }

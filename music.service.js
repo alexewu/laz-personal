@@ -27,16 +27,21 @@
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer BQA6VaOUKgIViB12AHfBI6NQbroAA925Gk4ZXcpX6mfAu3PlzRXmbtrmCEmweLiMiBdPwuB-Gr0b9CClADViAxGdGjO-RQvXp8MMCja4tegAMfLiyLiPf00u3sXnwyspTYvkXTpnWyXUZIobrmR2oWGbz637QRfMis3dZzV42dPxnsJdahWD6Fls-zWk70dyc7KDYqm4EXIYQr5aGvslVAIwOHA5uFCtt8WEf4R8HBbYo3-5JYL0nm6YqJchIpYydssA731x25NeG10"
+                    "Authorization": "Bearer BQBC5jLmeRDSnraAopnYN-pApfI_moUBnJTEQlcazo_i9FJPfM5SL1cbD41Pu2wVqeDyXGMHXF8OOiFcvAUEzpGR6PXEGd_mlC5TpmTenUXu45_FrTPHaNNfi6c25jfHGWrUleb0fg7JU64tD8EhyS37ijy2hxiJ2hf54UX05R_OfYOOkcxtSzQJXDCYprxS_yy73FoikfRE--NM0efLI6ZdDCtQuV1dXwSmFNv6EYxYF-KztlFOxksXHOpbNPU6uTfBiJ-2C0VLpf4"
                 }
             };
 
             return $http(req);
         }
 
+        function getLastFiveReviews() {
+            return $http.get("/main/feedContent/");
+        }
+
         return {
             getMusicInfo: getMusicInfo,
-            getPostInfo: getPostInfo
+            getPostInfo: getPostInfo,
+            getLastFiveReviews: getLastFiveReviews
         }
     }
 })();

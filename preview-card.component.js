@@ -2,17 +2,14 @@
 
     var app = angular.module("soundBlog");
 
-    app.component('reviewCard', {
-       templateUrl: '/review-card.html',
-       controller: 'reviewCardController'
+    app.component('previewCard', {
+        templateUrl: '/preview-card.html',
+        controller: 'previewCardController'
     });
 
-    app.controller('reviewCardController', reviewCardController);
+    app.controller('previewCardController', previewCardController);
 
-    reviewCardController.$inject = ["musicService"];
-
-
-    function reviewCardController(musicService) {
+    function previewCardController(musicService) {
         var ctrl = this;
 
         function updateReviewContents(data) {
@@ -38,7 +35,7 @@
                 });
         }
 
-        musicService.getPostInfo(postId)
+        musicService.getPostInfo(5)
             .then(updateReviewContents)
             .then(updateSpotifyContent);
     }
