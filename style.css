@@ -87,12 +87,55 @@ table
 
 .preview_card
 {
-    width: 400px;
+    width: 600px;
     background-color: whitesmoke;
     -webkit-border-radius: 60px;
 }
 
 .feed
 {
-    background-color: #d6e9c6;
+    background-color: white;
+}
+
+a
+{
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+a:link {
+    color: lightcoral;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: gold;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.header
+{
+    padding: 10px;
+}
+
+.home
+{
+    background-color: #1EAEDB;
+    display:inline-block;
+    position:absolute;
+    right:30px;
+    top:40px;
 }

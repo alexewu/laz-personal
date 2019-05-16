@@ -4,7 +4,10 @@
 
     app.component('previewCard', {
         templateUrl: '/preview-card.html',
-        controller: 'previewCardController'
+        controller: 'previewCardController',
+        bindings: {
+            blah: "@"
+        }
     });
 
     app.controller('previewCardController', previewCardController);
@@ -35,8 +38,10 @@
                 });
         }
 
-        musicService.getPostInfo(5)
-            .then(updateReviewContents)
-            .then(updateSpotifyContent);
+        ctrl.$onInit = function() {
+            musicService.getPostInfo(ctrl.blah)
+                .then(updateReviewContents)
+                .then(updateSpotifyContent);
+        }
     }
 })();
