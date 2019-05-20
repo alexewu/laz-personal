@@ -6,7 +6,7 @@
         templateUrl: '/preview-card.html',
         controller: 'previewCardController',
         bindings: {
-            blah: "@"
+            id: "@"
         }
     });
 
@@ -39,7 +39,7 @@
         }
 
         ctrl.$onInit = function() {
-            musicService.getPostInfo(ctrl.blah)
+            musicService.getPostInfo(ctrl.id)
                 .then(updateReviewContents)
                 .then(updateSpotifyContent);
         }

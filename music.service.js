@@ -27,7 +27,7 @@
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer BQAI-WZHyVodHhujz8YLEBI-ajOR79jZt-dcMUdFAUj3H-0eYn2g0__GE7bP9h_gv7u_7FVOQ2uhyi5jZfzcmAfTs3I7ZW37T1Jt2j9AxHdoUKWgo_VXeBA9W3ARkL3r_fnRpo65JuzKjyfT1mtH_E5LydagmgmQ9fzxcpgEAmGDYQbpIfidBKKzOC3gW67Sras5_YCM1dsYZqUTEgziB_fmuCl5a9zj5UsTYo9DeAQvFyaskS_JJVGG4-ib5M4Hxy7v-jXOuj5GtS4"
+                    "Authorization": "Bearer BQBPWGQuK6QchdYhGKMEjExWVXTs5ZAksTxQQ7k_7vWsKI9VYKFVZR6iR9yltInIGAFc60cG_kp-Upl15VDyPDqm00OcrZnKQlpYR-6QNd2Ozu08qkHSTvfdki02A_4L23muisEOqj_Frq-jlxhtTYIN-yBKXXeOy9MdRW6Lvk057h_5aoylCCTXqjVwpYqktYrXo765t9K5Q8N3Qjmsn7CB_U1MmAPaPC_wWluKwxtgA7ug0E0C5WR_ZNzmnYE3yx2C1DCr8a7sqy8"
                 }
             };
 
@@ -38,10 +38,15 @@
             return $http.get("/main/feedContent/");
         }
 
+        function getUsers() {
+            return $http.get("/main/users/");
+        }
+
         return {
             getMusicInfo: getMusicInfo,
             getPostInfo: getPostInfo,
-            getLastFiveReviews: getLastFiveReviews
+            getLastFiveReviews: getLastFiveReviews,
+            getUsers: getUsers
         }
     }
 })();

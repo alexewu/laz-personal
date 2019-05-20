@@ -19,6 +19,9 @@ class Router {
             case "feedContent":
                 return $this->dbGateway->getLastFivePostIds();
                 break;
+            case "users":
+                return $this->dbGateway->getUsers();
+                break;
             default:
                 include 'MainPage.html';
                 exit;

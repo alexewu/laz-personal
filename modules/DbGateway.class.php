@@ -75,4 +75,17 @@
             $this->close();
             return $postIds;
         }
+
+        public function getUsers() {
+            $this->open();
+            $sql = "SELECT *
+                    FROM user";
+            $result = $this->connection->query($sql);
+            $users = array();
+            while($user = $result->fetch_assoc()) {
+                array_push($users, $user);
+            }
+            $this->close();
+            return $users;
+        }
     }
