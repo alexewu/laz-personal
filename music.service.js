@@ -8,7 +8,7 @@
 
     function musicService($http) {
         function getPostInfo(postId){
-            return $http.get("/main/review/" + postId);
+            return $http.get("/main/review/getPostInfo" + postId);
         }
 
         function getMusicInfo(uri, type){
@@ -27,7 +27,7 @@
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer BQBPWGQuK6QchdYhGKMEjExWVXTs5ZAksTxQQ7k_7vWsKI9VYKFVZR6iR9yltInIGAFc60cG_kp-Upl15VDyPDqm00OcrZnKQlpYR-6QNd2Ozu08qkHSTvfdki02A_4L23muisEOqj_Frq-jlxhtTYIN-yBKXXeOy9MdRW6Lvk057h_5aoylCCTXqjVwpYqktYrXo765t9K5Q8N3Qjmsn7CB_U1MmAPaPC_wWluKwxtgA7ug0E0C5WR_ZNzmnYE3yx2C1DCr8a7sqy8"
+                    "Authorization": "Bearer BQAECjnzuumZi6lG6r2G1NgqlvdNgGqpDKlszoO-8jLAC6XJ3DLVPWcBkxmJUpwX1WeV8qkreOP4KbOKiZcHi6H2BFgXCfP2VXDOrbaKoIYxO6S2tkG7v8II7C0YvW3swoKc063HAzn6P7qmQ3iiVAj7P4nsyr-fGDphADmdwvS5kJzt08PoqqKKHZ9bn-iDWPLQDaY01d1iMcuCcgEdxShhseozz7VWAhO5jrmmaiEDJdRriy3w1EVjmCYKTQmY1GgSYpfgMuQ7vhY"
                 }
             };
 
@@ -35,18 +35,38 @@
         }
 
         function getLastFiveReviews() {
-            return $http.get("/main/feedContent/");
+            return $http.get("/main/review/getLastFivePostIds/");
         }
 
         function getUsers() {
-            return $http.get("/main/users/");
+            return $http.get("/main/users/getUsers");
+        }
+
+        function createPost(review_type_in, spotify_uri_in, user_id_in, created_at_in, body_text_in) {
+            var data = {
+                review_type: review_type_in,
+                music_id: spotify_uri_in,
+                user_id: user_id_in,
+                created_at: created_at_in,
+                body_text: body_text_in
+            };
+
+            $http.post("/main/review/postReview/", data,
+                {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).then(function(){
+                return;
+            });
         }
 
         return {
             getMusicInfo: getMusicInfo,
             getPostInfo: getPostInfo,
             getLastFiveReviews: getLastFiveReviews,
-            getUsers: getUsers
+            getUsers: getUsers,
+            createPost: createPost
         }
     }
 })();

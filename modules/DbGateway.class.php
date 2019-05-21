@@ -43,27 +43,9 @@
             return $info;
         }
 
-        public function getFeedInfo() {
-            $this->open();
-            $sql = "SELECT  name,
-                            body_text,
-                            music_id,
-                            created_at,
-                            review_type
-                            FROM post
-                            JOIN user ON post.user_id = user.user_id";
-            $result = $this->connection->query($sql);
-            $feed = array();
-            while($post = $result->fetch_assoc()) {
-                array_push($feed, $post);
-            }
-            $this->close();
-            return $feed;
-        }
-
         public function getLastFivePostIds() {
             $this->open();
-            $sql = "SELECT  post_id
+            $sql = "SELECT  post_id, user_id
                     FROM post
                     ORDER BY post_id DESC
                     LIMIT 5";
@@ -78,7 +60,7 @@
 
         public function getUsers() {
             $this->open();
-            $sql = "SELECT *
+            $sql = "SELECT user_id, name
                     FROM user";
             $result = $this->connection->query($sql);
             $users = array();
@@ -87,5 +69,14 @@
             }
             $this->close();
             return $users;
+        }
+
+        public function postReview($review_type_in, $spotify_uri_in, $user_id_in, $created_at_in, $body_text_in) {
+            $this->open();
+            $sql = "INSERT INTO post(review_type, music_id, user_id, created_at, body_text)
+                    VALUES ('$review_type_in', '$spotify_uri_in', $user_id_in, '$created_at_in', '$body_text_in')";
+            $this->connection->query($sql);
+            $this->close();
+            return;
         }
     }

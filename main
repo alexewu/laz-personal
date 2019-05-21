@@ -1,39 +1,11 @@
 <?php
 include './modules/DbGateway.class.php';
+include 'Router.php';
 
-class Router {
-    private $dbGateway;
-
-    function __construct($dbGateway) {
-        $this->dbGateway = $dbGateway;
-    }
-
-    function route ($action, $postId) {
-        switch ($action) {
-            case "review":
-                return $this->dbGateway->getPostInfo($postId);
-                break;
-            case "reviewPage":
-                include 'PostPage.html';
-                exit;
-            case "feedContent":
-                return $this->dbGateway->getLastFivePostIds();
-                break;
-            case "users":
-                return $this->dbGateway->getUsers();
-                break;
-            default:
-                include 'MainPage.html';
-                exit;
-        }
-    }
-}
-$dbGateway = new DbGateway();
 $delimitedInfo = explode("/", $_SERVER["REQUEST_URI"]);
-$action = $delimitedInfo[2];
-$postId = $delimitedInfo[3];
-$router = new Router($dbGateway);
-$output = $router->route($action, $postId);
+array_splice($delimitedInfo, 0, 2);
+$router = new Router();
+$output = $router->route($delimitedInfo);
 if($output) {
     header('Content-Type: application/json');
     echo json_encode($output);

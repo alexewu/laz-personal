@@ -1,3 +1,9 @@
+<form class="filter">
+    <div class="checkbox" ng-repeat="user in $ctrl.users">
+        <input type="checkbox" ng-model="user.on" userId="{{user.user_id}}"> {{user.name}} (id: {{user.user_id}})<br>
+    </div>
+</form>
+
 <div class="feed">
-    <preview-card ng-repeat="postId in $ctrl.postIds" id="{{postId.post_id}}"></preview-card>
+    <preview-card ng-repeat="postId in $ctrl.postIds | authorFilter:($ctrl.users | filter:{on:true})" id="{{postId.post_id}}"></preview-card>
 </div>

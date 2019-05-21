@@ -1,0 +1,10 @@
+<div class="preview_card">
+    <h1> Write a Review </h1>
+    <form ng-submit="$ctrl.reviewSubmit()">
+        User ID: <input type="text" ng-model="$ctrl.user_id" ><br>
+        URI: <input type="text" ng-model="$ctrl.uri"><br>
+        Your Review: <input type="text" ng-model="$ctrl.body_text"><br>
+        Your Review Type: <input type="text" ng-model="$ctrl.type"><br>
+        <input type="submit" name="Submit">
+    </form>
+</div>
